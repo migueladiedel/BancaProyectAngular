@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import { BlogListComponent, BlogViewComponent, BlogAddComponent, BlogEditComponent } from './blog/blog.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -14,7 +15,7 @@ export const routes: Routes = [
       { path: ':id/:kk', component: BlogViewComponent},
     ]
   },
-
+  { path: 'registro', component: RegisterUserComponent },
   { path: '404.html', component: PageNotFoundComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

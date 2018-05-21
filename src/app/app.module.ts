@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BLOG_COMPONENT } from './blog/blog.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LoginComponent,
     HomeComponent,
     BLOG_COMPONENT,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes),

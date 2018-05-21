@@ -1,0 +1,34 @@
+<form [formGroup]="miForm">
+  <label>User:
+    <input type="text" formControlName="idUsuario">
+  </label>
+  {{miForm?.get('idUsuario')?.errors | json}}
+  <br>
+  <label>Name:
+    <input type="text" formControlName="nombre">
+  </label>
+  {{miForm?.get('nombre')?.errors | json}}
+  <br>
+
+  <fieldset formGroupName="password">
+    <label>Password:
+      <input type="password" formControlName="passwordValue">
+    </label>
+    {{miForm?.get('password')?.get('passwordValue')?.errors | json}}
+    <label>Confirm Password:
+      <input type="password" formControlName="passwordConfirm">
+    </label>
+  </fieldset>
+  {{miForm?.get('password')?.errors | json}}
+  <div formArrayName="roles">
+    <h4>Roles</h4>
+    <button (click)="addRole()">Add Role</button>
+    <ul *ngFor="let row of $any(miForm.get('roles')).controls; let i=index" [formGroupName]="i">
+      <li>Rol #{{i + 1}}:
+        <input type="text" formControlName="role"> {{row?.get('role')?.errors | json}}
+        <button (click)="deleteRole(i)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  <button (click)="send()" [disabled]="miForm.invalid" >Send</button>
+</form>{{ miForm.value | json }}
