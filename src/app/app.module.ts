@@ -2,6 +2,8 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BancaCoreModule, LoggerService, ERROR_LEVEL } from '../banca-core/';
+import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -13,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BLOG_COMPONENT } from './blog/blog.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LoggerService } from '../banca-core/services/logger.service';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { LoggerService } from '../banca-core/services/logger.service';
     PageNotFoundComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes),
+    BancaCoreModule,
     NgbModule.forRoot()
   ],
   providers: [
