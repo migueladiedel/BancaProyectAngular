@@ -28,7 +28,7 @@ export class RegisterUserComponent implements OnInit {
     //   new FormGroup({ role: new FormControl(r.role , Validators.required) })
     // ));
     this.miForm = new FormGroup({
-      idUsuario: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20), Validators.email]),
+      idUsuario: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
       nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
       password: new FormGroup({
           passwordValue: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -61,7 +61,7 @@ export class RegisterUserComponent implements OnInit {
         this.login.login(data.idUsuario, data.password.passwordValue).subscribe(
           datos => {
             if (datos) {
-              this.nsrv.add('Ususario reguistrado', 'log');
+              this.nsrv.add('Usuario registrado', 'log');
               this.router.navigateByUrl('/');
             } else {
               this.nsrv.add('Error en el registro.');

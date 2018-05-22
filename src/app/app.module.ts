@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { BLOG_COMPONENT } from './blog/blog.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { CuentasComponent } from './cuentas/cuentas.component';
+import { OfertasComponent } from './ofertas/ofertas.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     HomeComponent,
     BLOG_COMPONENT,
     PageNotFoundComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    CuentasComponent,
+    OfertasComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes),

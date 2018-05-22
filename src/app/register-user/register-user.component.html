@@ -1,34 +1,37 @@
 <form [formGroup]="miForm">
-  <label>User:
-    <input type="text" formControlName="idUsuario">
-  </label>
-  {{miForm?.get('idUsuario')?.errors | json}}
-  <br>
-  <label>Name:
-    <input type="text" formControlName="nombre">
-  </label>
-  {{miForm?.get('nombre')?.errors | json}}
-  <br>
+  <div class="form-group">
+    <label>User:</label>
+    <input type="text" class="form-control" id="id" formControlName="idUsuario">
+    <span class="errorMsg">{{miForm?.get('idUsuario')?.errors | json}}</span>
 
-  <fieldset formGroupName="password">
-    <label>Password:
-      <input type="password" formControlName="passwordValue">
-    </label>
-    {{miForm?.get('password')?.get('passwordValue')?.errors | json}}
-    <label>Confirm Password:
-      <input type="password" formControlName="passwordConfirm">
-    </label>
-  </fieldset>
-  {{miForm?.get('password')?.errors | json}}
-  <div formArrayName="roles">
-    <h4>Roles</h4>
-    <button (click)="addRole()">Add Role</button>
-    <ul *ngFor="let row of $any(miForm.get('roles')).controls; let i=index" [formGroupName]="i">
-      <li>Rol #{{i + 1}}:
-        <input type="text" formControlName="role"> {{row?.get('role')?.errors | json}}
-        <button (click)="deleteRole(i)">Delete</button>
-      </li>
-    </ul>
   </div>
-  <button (click)="send()" [disabled]="miForm.invalid" >Send</button>
-</form>{{ miForm.value | json }}
+  <div class="form-group">
+    <label>Name:</label>
+    <input type="text" id="nombre" class="form-control" formControlName="nombre">
+    <span class="errorMsg">{{miForm?.get('nombre')?.errors | json}}</span>
+  </div>
+  <div class="form-group">
+    <fieldset formGroupName="password">
+      <label>Password:</label>
+      <input type="password" class="form-control" formControlName="passwordValue">
+      <label>Confirm Password:</label>
+      <input class="form-control" type="password" formControlName="passwordConfirm">
+    </fieldset>
+    <span class="errorMsg">{{miForm?.get('password')?.errors | json}}</span>
+  </div>
+  <div class="form-group">
+    <div formArrayName="roles">
+      <h4>Roles</h4>
+      <button (click)="addRole()">Add Role</button>
+      <ul *ngFor="let row of $any(miForm.get('roles')).controls; let i=index" [formGroupName]="i">
+        <li>Rol {{i + 1}}:
+          <input class="form-control" type="text" formControlName="role">
+          <button (click)="deleteRole(i)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-group">
+    <button (click)="send()" [disabled]="miForm.invalid">Send</button>
+  </div>
+</form>
