@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
             this.cambiaTexto();
             this.router.navigateByUrl('cuentas');
           } else {
-            this.nsrv.add('Usuario o contraseña invalida.');
+            this.nsrv.add('Usuario o contraseña inválida.');
             this.router.navigateByUrl('ofertas');
           }
         },

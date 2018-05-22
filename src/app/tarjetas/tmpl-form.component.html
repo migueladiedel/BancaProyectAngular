@@ -1,0 +1,45 @@
+<form #miForm="ngForm">
+<dl>
+    <dt>Código:</dt>
+    <dd *ngIf="VM.Modo === 'add'">
+      <input type="number" name="id" id="id" [(ngModel)]="VM.Elemento.id" #id="ngModel"
+        required>
+      <span class="errorMsg" [hidden]="!id.hasError('required') || miForm.pristine">Es obligatorio.</span>
+    </dd>
+    <dd *agioUnless="VM.Modo === 'add'">
+      {{VM.Elemento.id}}
+    </dd>
+    <dt [class.errorMsg]="nombre.invalid">Nombre:</dt>
+    <dd>
+        <input type="text" name="nombre" id="nombre" [(ngModel)]="VM.Elemento.nombre" #nombre="ngModel"
+          required minlength="2" maxlength="10">
+        <span class="errorMsg" [hidden]="!nombre.errors?.required">Es obligatorio.</span>
+        <span class="errorMsg" [hidden]="!nombre.errors?.minlength && !nombre.errors?.maxlength">
+          Debe tener entre 2 y 10 caracteres.
+        </span>
+    </dd>
+    <dt>Apellidos:</dt>
+    <dd>
+        <input type="email" name="apellidos" id="apellidos" [(ngModel)]="VM.Elemento.apellidos" #apellidos="ngModel"
+          minlength="2" maxlength="10" valnif>{{ apellidos.errors | json }}
+        <span class="errorMsg" [hidden]="!apellidos.errors?.minlength && !apellidos.errors?.maxlength">
+            Debe tener entre 2 y 10 caracteres.
+        </span>
+        <span class="errorMsg" [hidden]="!apellidos.errors?.upperCase">
+            Tiene que estar en mayúsculas.
+        </span>
+        </dd>
+    <dt>Edad:</dt>
+    <dd>
+        <input type="number" name="edad" id="edad" [(ngModel)]="VM.Elemento.edad" #edad="ngModel"
+          min="18" max="67" naturalNumber> {{ edad.errors | json }}
+        <span class="errorMsg" [hidden]="!edad.errors?.min && !edad.errors?.max">
+            Debe estar entre 18 y 67 años.
+        </span>
+      </dd>
+  </dl>
+  <p>
+      <input type="button" value="Enviar" (click)="VM.send()" [disabled]="miForm.invalid">
+      <input type="button" value="Volver" (agioWinConfirm)="VM.cancel()" agioWinConfirmMessage="¿Estás seguro?">
+  </p>
+</form>

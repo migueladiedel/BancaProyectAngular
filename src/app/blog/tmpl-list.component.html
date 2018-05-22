@@ -18,7 +18,7 @@
         <p class="card-text mb-auto">{{item.texto}}</p>
         <a [routerLink]="['/blog', item.id]">Leer mas</a>
       </div>
-      <img *ngIf="item.fotourl" class="card-img-right flex-auto d-none d-lg-block" data-src="{{item.fotourl}}" alt="Imagen de {{item.titulo}}">
+      <img *ngIf="item.fotourl" class="rounded-circle " alt="Cinque Terre" height="200" width="200" data-src="{{item.fotourl}}" alt="Imagen de {{item.titulo}}">
     </div>
   </div>
 </div>

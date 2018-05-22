@@ -1,0 +1,22 @@
+<table class="table table-striped table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>
+        <a routerLink="/tarjetas/add">Añadir</a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of VM.Listado">
+      <td>
+        <a [routerLink]="['/tarjetas', item.id, item.nombre + '-' + item.apellidos ]">
+          {{item.nombre}} {{item.apellidos}}</a>
+      </td>
+      <td>
+        <input type="button" value="Editar" [routerLink]="['/tarjetas', item.id, 'edit' ]">
+        <input type="button" value="Borrar" (click)="VM.remove(item.id)">
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { CuentasComponent } from './cuentas/cuentas.component';
 import { OfertasComponent } from './ofertas/ofertas.component';
+import { TarjetasComponent } from './tarjetas/tarjetas.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { OfertasComponent } from './ofertas/ofertas.component';
     PageNotFoundComponent,
     RegisterUserComponent,
     CuentasComponent,
-    OfertasComponent
+    OfertasComponent,
+    TarjetasComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes),

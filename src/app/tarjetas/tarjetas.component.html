@@ -1,0 +1,7 @@
+<h1>Mantenimiento de Tarjetas</h1>
+<ng-container [ngSwitch]="VM.Modo">
+  <app-tarjetas-add *ngSwitchCase="'add'"></app-tarjetas-add>
+  <app-tarjetas-edit *ngSwitchCase="'edit'"></app-tarjetas-edit>
+  <app-tarjetas-view *ngSwitchCase="'view'"></app-tarjetas-view>
+  <app-tarjetas-list *ngSwitchDefault></app-tarjetas-list>
+</ng-container>
