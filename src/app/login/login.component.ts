@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         data => {
           if (data) {
             this.cambiaTexto();
-            this.router.navigateByUrl('cuentas');
+            this.router.navigateByUrl('tarjetas');
           } else {
             this.nsrv.add('Usuario o contraseña inválida.');
             this.router.navigateByUrl('ofertas');
